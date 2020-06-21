@@ -32,6 +32,12 @@ brew install etcd
 
 # run etcd
 etcd
+
+# install micro 
+go get -u github.com/micro/go-micro
+# install micro runtime
+go get github.com/micro/micro/v2
+
 ```
 
 ## Usage
@@ -46,7 +52,7 @@ make build
 
 Run the service
 ```
-./wechatApp-service
+./wechatAppRpc-service
 ```
 
 Build a docker image
