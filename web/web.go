@@ -17,7 +17,7 @@ func main() {
 		// New Service
 
 		service := web.NewService(
-				web.Name(ServiceVersion),
+				web.Name(ServiceName),
 				web.Version(ServiceVersion),
 				web.Registry(plugins.GetRegistry()),
 				web.Address(":18088"),
@@ -30,6 +30,7 @@ func main() {
 		}
 
 		app := iris.New()
+
 		app.Get("/test", func(ctx context.Context) {
 				ctx.JSON(iris.Map{
 						"code": 0,

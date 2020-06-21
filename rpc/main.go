@@ -16,11 +16,11 @@ const (
 
 func main() {
 
-
 		// New Service
 		service := micro.NewService(
-				micro.Name(ServiceVersion),
+				micro.Name(ServiceName),
 				micro.Version(ServiceVersion),
+				micro.Address("127.0.0.1:8888"),
 				micro.Registry(plugins.GetRegistry()),
 		)
 
@@ -33,11 +33,12 @@ func main() {
 				log.Error(err)
 		}
 
-		// Register Struct as Subscriber
+		// Register Struct as Subscriber # 消息订阅
 		err = micro.RegisterSubscriber(ServiceName, service.Server(), new(subscriber.WechatApp))
 		if err != nil {
 				log.Error(err)
 		}
+
 
 		// Run service
 		if err = service.Run(); err != nil {
